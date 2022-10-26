@@ -66,7 +66,7 @@ namespace DesignPatternAssessmentBase.Models
             return 2.2;
         }        
         private double BreachDeadline { get; set; } 
-        public bool WhiteGloveclient { get; set; }             
+        //public bool WhiteGloveclient { get; set; }             
 
         
     }
