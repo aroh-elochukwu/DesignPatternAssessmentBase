@@ -14,8 +14,9 @@ namespace DesignPatternAssessmentBase.Models
         medium,
         high
     }
-
-    public class Ticket
+    
+    //initial ticket class, made abstract because a ticket can only be either a service request or bug report
+    public abstract class Ticket
     {
         [Key]
         public int Id { get; set; }
@@ -44,6 +45,29 @@ namespace DesignPatternAssessmentBase.Models
 
         [InverseProperty("WatchedTickets")]
         public virtual ICollection<ApplicationUser> TaskWatchers { get; set; } = new HashSet<ApplicationUser>();
-        public virtual ICollection<Comment> Comment { get; set; } = new HashSet<Comment>();
+        public virtual ICollection<Comment> Comment { get; set; } = new HashSet<Comment>();    
+        
+        //Added virtual method here declare a base GetResponseMethod which would be overridden at every class instantiation that inherits from the ticket abstract class 
+        public virtual double GetResponseDeadline()
+        {
+            // base conditions
+            // should update respond deadline after reviewing conditions
+            // from the name GetResponseDeadline i felt it should return the value so me returning 1.1 is a "hack"
+            return 1.1;
+        }
+        private double ResponseDeadline { get; set; }
+        //Added virtual method here declare a base GetResponseMethod which would be overridden at every class instantiation that inherits from the ticket abstract class 
+        public virtual double GetBreachDeadline()
+        {
+            // base conditions
+            // should update breach deadline after reviewing conditions
+            // from the name GetBreachDeadline i felt it should return the value so me returning 2.2 is a "hack"
+
+            return 2.2;
+        }        
+        private double BreachDeadline { get; set; } 
+        public bool WhiteGloveclient { get; set; }             
+
+        
     }
 }
