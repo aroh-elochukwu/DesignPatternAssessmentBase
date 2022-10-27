@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace DesignPatternAssessmentBase.Models
 {
-    //ClientTypeDecorator is an abstract class inheriting from the basic ticket class allowing the breachDeadline and ResponseDeadline be modified in sub classes. 
-    public abstract class ClientTypeDecorator: Ticket
+    //the white glove client has its breachDeadline and Response Deadline method overridden based on its requirements
+    public class WhiteGloveClient:ClientTypeDecorator
     {
-        public Ticket Ticket;
         public override double GetBreachDeadline()
         {
             // base conditions
@@ -27,8 +26,5 @@ namespace DesignPatternAssessmentBase.Models
             return 1.3;
 
         }
-
     }
-
-
 }
