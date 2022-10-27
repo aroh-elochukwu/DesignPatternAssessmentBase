@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DesignPatternAssessmentBase.Models
 {
-    //GoldLevelClientTicket explains in details here the nitty-gritty of ticket(bugReport or serviceRequest) received from a VIP client where the deadlines and completion date amongst other things could/should be different from a basic  
-    public class GoldLevelClientTicket: Ticket
+    //ClientTypeDecorator is an abstract class inheriting from the basic ticket class allowing the breachDeadline and ResponseDeadline be modified in sub classes. 
+    public abstract class ClientTypeDecorator: Ticket
     {
         public override double GetBreachDeadline()
         {
@@ -18,5 +18,16 @@ namespace DesignPatternAssessmentBase.Models
             return 2.2;
         }
 
+        //here I override the virtual method inherited from parent abstract class
+        public override double GetResponseDeadline()
+        {
+            //conditions
+            //calculations
+            return 1.3;
+
+        }
+
     }
+
+
 }
